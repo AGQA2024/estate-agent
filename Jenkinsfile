@@ -3,17 +3,21 @@ pipeline{
     stages {
         stage('Build'){
             steps{
-                // bat 'cd estate-agent'
                 bat 'npm install'
-            
-                bat 'npm run dev'
-                // sh 'npx json-server db.json'
+                bat 'npm run build'
             }
         }
         
-        stage('Deploy'){
+        stage('Deploy-Parallel-Servers'){
             steps{
-                bat 'o'
+                parallel(
+                    a: {
+                        bat 'npm run preview'
+                    },
+                    b: {
+                        bat 'npx json-server db.json'
+                    }
+                )
             }
         }
     }
