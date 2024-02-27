@@ -6,15 +6,15 @@ pipeline{
                 // bat 'cd estate-agent'
                 bat 'npm install'
             
-                bat 'npm run'
+                bat 'npm run dev'
                 // sh 'npx json-server db.json'
             }
         }
         
-        // stage('Deploy'){
-        //     steps{
-        //         bat 'o'
-        //     }
-        // }
+        stage('Deploy'){
+            steps{
+                bat 'o'
+            }
+        }
     }
 }
