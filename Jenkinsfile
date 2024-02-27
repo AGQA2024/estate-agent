@@ -4,7 +4,7 @@ pipeline{
         stage('Build'){
             steps{
                 bat 'npm install'
-                // bat 'npm run build'
+                bat 'npm run build'
             }
         }
         
@@ -12,7 +12,7 @@ pipeline{
             steps{
                 parallel(
                     a: {
-                        bat 'npm run dev --port 5000'
+                        bat 'npm run preview'
                     },
                     b: {
                         bat 'npx json-server db.json'
