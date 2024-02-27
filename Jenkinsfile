@@ -12,7 +12,7 @@ pipeline{
             steps{
                 parallel(
                     a: {
-                        bat 'npm run dev'
+                        bat 'npm run dev --port 5000'
                     },
                     b: {
                         bat 'npx json-server db.json'
